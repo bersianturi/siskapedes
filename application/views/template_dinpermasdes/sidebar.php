@@ -67,7 +67,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <h4 class="font-weight-bold">Nama Instansi</h4>
+                    <h4 class="font-weight-bold mb-0">Dinpermasdes</h4>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
