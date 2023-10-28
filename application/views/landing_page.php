@@ -29,10 +29,10 @@
    <!-- Header Section -->
    <div class="Header" id="Home">
       <nav class="navbar fixed-top">
-         <img src="assets/landing/img/purbalingga.png" weight="65" height="85">
+         <img src="assets/landing/img/purbalingga.png" height="56px">
          <div class="container">
             <a class="navbar-brand" href="#">
-               <h1>SISKAPEDES</h1>
+               SISKAPEDES
             </a>
             <div class="collapse_menu deactive">
                <i class="fa fa-bars" aria-hidden="true"></i>
