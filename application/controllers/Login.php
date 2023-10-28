@@ -17,12 +17,7 @@ class Login extends CI_Controller
 			$cek = $this->ModelPerangkat->cek_login($nik, $password);
 
 			if ($cek == FALSE) {
-				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-				<strong>Username atau Password Salah!</strong>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-				</button>
-				</div>');
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert"><strong>Username atau Password Salah!</strong></div>');
 				redirect('login');
 			} else {
 				$this->session->set_userdata('hak_akses', $cek->hak_akses);
@@ -53,8 +48,10 @@ class Login extends CI_Controller
 
 	public function _rules()
 	{
-		$this->form_validation->set_rules('nik', 'nik', 'required');
-		$this->form_validation->set_rules('password', 'password', 'required');
+		$this->form_validation->set_rules('nik', 'NIK', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_message('required', '%s tidak boleh kosong.');
+		$this->form_validation->set_error_delimiters('<div style="text-align: left;"><small style="color: #e74a3b">', '</small></div>');
 	}
 
 	public function logout()
