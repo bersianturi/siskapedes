@@ -185,21 +185,27 @@ body {
 .navbar .navbar-brand {
 	font-family: "Bahnschrift", Verdana, Geneva, Tahoma, sans-serif;
 	font-weight: bold;
-	font-size: 30px;
+	font-size: 1.5rem;
 	color: #00bfd8;
 }
+
+.navbar .container {
+	padding-left: 0;
+	margin-left: 0;
+}
+
 .navbar {
 	transition: all 0.5s;
-	padding: 20px;
+	padding: 10px;
 }
 .navbar.shrink {
-	line-height: 1;
 	padding: 10px;
 	background: #fff;
 	box-shadow: 0 0 6px #000;
 }
 .navbar.shrink .nav-item .nav-link {
 	color: #00bfd8;
+	font-size: 1rem;
 }
 .navbar.shrink .nav-item.social .nav-link {
 	color: white;
@@ -207,6 +213,7 @@ body {
 
 .navbar .nav-item .nav-link {
 	color: white;
+	font-size: 1rem;
 }
 
 /* 
@@ -408,8 +415,10 @@ body {
 |##
  */
 .Footer {
-	border-top: 1px solid #7e7e7e;
-	padding-top: 20px;
+	padding: 1.8rem 0;
+	line-height: 1;
+	font-size: 0.8rem;
+	color: #858796;
 }
 .Footer .row .FooterHeading {
 	font-size: 25px;
