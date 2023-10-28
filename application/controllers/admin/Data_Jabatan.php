@@ -47,10 +47,9 @@ class Data_Jabatan extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->tambah_data();
         } else {
-            $nama_jabatan                = $this->input->post('nama_jabatan');
-
+            $nama_jabatan = $this->input->post('nama_jabatan');
             $data = array(
-                'nama_jabatan'         => $nama_jabatan,
+                'nama_jabatan' => $nama_jabatan,
             );
 
             $this->ModelPerangkat->insert_data($data, 'jabatan');
@@ -69,7 +68,7 @@ class Data_Jabatan extends CI_Controller
         $id = $this->uri->segment(4);
         $where = array('id_jabatan' => $id);
         $data['title'] = "Update Data Jabatan";
-        $data['jabatan'] = $this->ModelPerangkat->get_data('jabatan')->result();
+        // $data['jabatan'] = $this->ModelPerangkat->get_data('jabatan')->result();
         $data['jabatan'] = $this->db->query("SELECT * FROM jabatan WHERE id_jabatan='$id'")->result();
 
         $this->load->view('template_admin/header', $data);
