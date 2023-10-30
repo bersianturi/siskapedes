@@ -16,9 +16,9 @@
       </div>
       <div class="login-content">
          <form class="user" method="POST" action="<?php echo base_url('login') ?>">
-            <img src="<?php echo base_url(); ?>assets/img/purbalingga.png">
+            <img src="<?php echo base_url(); ?>assets/img/avatar.svg">
             <h2 class="title">
-               SISKAPEDES
+               <font size="5">SISKAPEDES</font>
             </h2>
             <?php echo $this->session->flashdata('pesan') ?>
             <div class="input-div one">
@@ -26,34 +26,24 @@
                   <i class="fas fa-user"></i>
                </div>
                <div class="div">
-                  <h5>Nomor Induk Kependudukan</h5>
+                  <h5>Nomor Induk Kependudukan <?php echo form_error('nik', '<div class="text-small text-danger"> </div>') ?></h5>
                   <input type="text" class="input" name="nik">
                </div>
             </div>
-            <?php echo form_error('nik') ?>
-            <div class="input-div">
+            <div class="input-div pass">
                <div class="i">
                   <i class="fas fa-lock"></i>
                </div>
                <div class="div">
-
-                  <h5>Password</h5>
+                  <h5>Password <?php echo form_error('password', '<div class="text-small text-danger"> </div>') ?></h5>
                   <input type="password" class="input" name="password">
                </div>
             </div>
-            <?php echo form_error('password') ?>
             <input type="submit" class="btn" value="Login">
          </form>
       </div>
    </div>
    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/main.js"></script>
-   <script src="<?php echo base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
-   <script>
-      $(".alert").fadeTo(3000, 500).slideUp(500, function() {
-         $(".alert").slideUp(500);
-         $(".alert").remove();
-      });
-   </script>
 </body>
 
 </html>
