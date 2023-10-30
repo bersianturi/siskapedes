@@ -145,6 +145,7 @@
                     <input class="form-control" id="verifikasi_data" type="text" name="verifikasi_data" placeholder="Masa Jabatan" value="belum_disetujui" style="display: none">
                     <div class="form-group">
                         <label>Photo</label>
+                        <input type="hidden" name="old_photo" value="<?= $row->photo; ?>">
                         <input type="file" name="photo" class="form-control">
                     </div>
 
