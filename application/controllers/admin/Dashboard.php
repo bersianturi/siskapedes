@@ -25,6 +25,8 @@ class Dashboard extends CI_Controller
 		$data['superadmin'] = $this->db->query("SELECT * FROM perangkat_desa WHERE hak_akses = '4'")->num_rows();
 		$data['perangkat_per_jenis_kelamin'] = $this->ModelPerangkat->get_perangkat_per_jenis_kelamin();
 		$data['perangkat_per_jabatan'] = $this->ModelPerangkat->get_perangkat_per_jabatan();
+		$data['hak_akses'] = $this->ModelPerangkat->get_data('hak_akses')->result();
+
 
 		$this->load->view('template_admin/header', $data);
 		$this->load->view('template_admin/sidebar');

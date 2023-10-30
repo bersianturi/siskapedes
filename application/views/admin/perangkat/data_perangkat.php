@@ -88,16 +88,11 @@
                 <td class="text-center"><?php echo $p->masa_jabatan ?></td>
                 <td class="text-center"><?php echo $p->status ?></td>
                 <td class="text-center"><?php echo $p->password ?></td>
-                <td class="text-center"><?php if ($p->hak_akses == '1') {
-                                          echo "Admin";
-                                        } else if ($p->hak_akses == '2') {
-                                          echo "Dinpermasdes";
-                                        } else if ($p->hak_akses == '3') {
-                                          echo "Perangkat Desa";
-                                        } else {
-                                          echo "Super Admin";
-                                        }
-                                        ?></td>
+                <td class="text-center"><?php foreach ($hak_akses as $hk) {
+                                          if ($hk->hak_akses == $p->hak_akses) {
+                                            echo $hk->keterangan;
+                                          }
+                                        } ?></td>
 
                 <td class="text-center">
                   <?php

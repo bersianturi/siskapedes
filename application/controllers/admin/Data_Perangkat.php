@@ -22,6 +22,8 @@ class Data_Perangkat extends CI_Controller
 	{
 		$data['title'] = "Data Perangkat Desa";
 		$data['pegawai'] = $this->ModelPerangkat->get_data('perangkat_desa')->result();
+		$data['hak_akses'] = $this->ModelPerangkat->get_data('hak_akses')->result();
+
 
 		$this->load->view('template_admin/header', $data);
 		$this->load->view('template_admin/sidebar');

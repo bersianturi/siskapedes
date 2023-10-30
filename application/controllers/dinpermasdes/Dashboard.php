@@ -25,6 +25,8 @@ class Dashboard extends CI_Controller
         $data['jumlah_superadmin'] = $this->db->query("SELECT * FROM perangkat_desa WHERE hak_akses = '4'")->num_rows();
         $data['desa'] = $this->ModelPerangkat->get_data('desa')->result();
         $data['kecamatan'] = $this->ModelPerangkat->get_data('kecamatan')->result();
+        $data['hak_akses'] = $this->ModelPerangkat->get_data('hak_akses')->result();
+
 
         $kecamatan       = $this->input->post('kecamatan');
         $desa              = $this->input->post('desa');
