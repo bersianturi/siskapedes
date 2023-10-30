@@ -14,7 +14,7 @@ class Data_Diri extends CI_Controller
 				<span aria-hidden="true">&times;</span>
 				</button>
 				</div>');
-            redirect('login');
+            redirect('login/logout');
         }
     }
 
@@ -37,20 +37,20 @@ class Data_Diri extends CI_Controller
 
 
         if ($this->form_validation->run() != false) {
-            if ($photo = '') {
-                $photo = 'av2.png';
+
+            $config['upload_path']         = './photo';
+            $config['allowed_types']     = 'jpg|jpeg|png|tiff';
+            $config['max_size']            =     2048;
+            $config['file_name']        =     'pegawai-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('photo')) {
+                $photo = $this->upload->data('file_name');
             } else {
-                $config['upload_path']         = './photo';
-                $config['allowed_types']     = 'jpg|jpeg|png|tiff';
-                $config['max_size']            =     2048;
-                $config['file_name']        =     'pegawai-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('photo')) {
-                    echo "Photo Gagal Diupload !";
-                } else {
-                    $photo = $this->upload->data('file_name');
-                }
+                $photo = $this->input->post('old_photo');
             }
+
             $data = [
                 'id_perangkat' => $this->input->post('id'),
                 'nama_perangkat' => $this->input->post('nama'),

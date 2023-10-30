@@ -6,6 +6,21 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Data_Perangkat extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ($this->session->userdata('hak_akses') != '1') {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Anda Belum Login!</strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+				</div>');
+            redirect('login/logout');
+        }
+    }
+
     public function index()
     {
         $data['desa'] = $this->ModelPerangkat->get_data('desa')->result();
@@ -79,20 +94,18 @@ class Data_Perangkat extends CI_Controller
             $status                = $this->input->post('status');
             $password            = md5($this->input->post('password'));
             $hak_akses            = $this->input->post('hak_akses');
-            $photo                = $_FILES['photo']['name'];
-            if ($photo = '') {
-                $photo = 'av2.png';
+
+            $config['upload_path']         = './photo';
+            $config['allowed_types']     = 'jpg|jpeg|png|tiff';
+            $config['max_size']            =     2048;
+            $config['file_name']        =     'pegawai-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('photo')) {
+                $photo = $this->upload->data('file_name');
             } else {
-                $config['upload_path']         = './photo';
-                $config['allowed_types']     = 'jpg|jpeg|png|tiff';
-                $config['max_size']            =     2048;
-                $config['file_name']        =     'pegawai-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('photo')) {
-                    echo "Photo Gagal Diupload !";
-                } else {
-                    $photo = $this->upload->data('file_name');
-                }
+                $photo = 'default.png';
             }
 
 
