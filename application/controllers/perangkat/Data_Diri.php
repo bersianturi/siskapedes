@@ -46,6 +46,9 @@ class Data_Diri extends CI_Controller
             $this->load->library('upload', $config);
 
             if ($this->upload->do_upload('photo')) {
+                if ($this->input->post('old_photo') != 'default.png') {
+                    unlink('./photo/' . $this->input->post('old_photo', TRUE));
+                }
                 $photo = $this->upload->data('file_name');
             } else {
                 $photo = $this->input->post('old_photo');

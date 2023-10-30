@@ -173,18 +173,21 @@ class Data_Perangkat extends CI_Controller
 			$masa_jabatan		= $this->input->post('masa_jabatan');
 			$status				= $this->input->post('status');
 			$hak_akses			= $this->input->post('hak_akses');
-			// $photo				= $_FILES['photo']['name'];
-			$config['upload_path'] 		= './photo';
-			$config['allowed_types'] 	= 'jpg|jpeg|png|tiff';
-			$config['max_size']			= 	2048;
-			$config['file_name']		= 	'pegawai-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+			$config['upload_path']         = './photo';
+			$config['allowed_types']     = 'jpg|jpeg|png|tiff';
+			$config['max_size']            =     2048;
+			$config['file_name']        =     'pegawai-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
 			$this->load->library('upload', $config);
+
 			if ($this->upload->do_upload('photo')) {
+				if ($this->input->post('old_photo') != 'default.png') {
+					unlink('./photo/' . $this->input->post('old_photo', TRUE));
+				}
 				$photo = $this->upload->data('file_name');
-				unlink('./photo/' . $this->input->post('old_photo', TRUE));
-				$this->db->set('photo', $photo);
 			} else {
-				$photo = $this->input->post('old_photo', TRUE);
+				$photo = $this->input->post('old_photo');
 			}
 
 			$data = array(
