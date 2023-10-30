@@ -74,131 +74,72 @@
    </div>
    </div>
 
+
    <!-- Service Section -->
    <div class="Service" id="Tentang">
       <div class="Section">
-         <!-- <div class="text-center">
-            <h2><b>Informasi</b></h2>
-            <p></p>
-            <p></p>
-            <div class="subHeading">
-               Berikut informasi lebih lengkap tentang website <br>informasi pendataan perangkat desa </div>
-         </div>
-
-         <div class="content">
-            <div class="row">
-               <div class="col-md-6 col-lg-4 col-xl-3 ">
-                  <div class="card">
-                     <div class="CardImage"><img src="<?php echo base_url(); ?>assets/img/administrator.svg"></div>
-                     <div class="body">
-                        <div class="title mb-2">
-                           <font size="4"><b><i>Tentang Website</font></b></i>
-                        </div>
-                        <div class="flip" id="flip1">
-                           <font color="white">Baca Selengkapnya</font>
-                        </div>
-                        <div class="panel" id="panel1">aplikasi ini dibuat untuk membantu pemerintah dalam proses pemantauan data perangkat desa</div>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="col-md-6 col-lg-4 col-xl-3 ">
-                  <div class="card">
-                     <div class="CardImage"><img src="<?php echo base_url(); ?>assets/img/administrator.svg"></div>
-                     <div class="body">
-                        <div class="title mb-2">
-                           <font size="4"><b><i>Informasi A</font></b></i>
-                        </div>
-                        <div class="flip" id="flip2">
-                           <font color="white">Baca Selengkapnya</font>
-                        </div>
-                        <div class="panel" id="panel2">Deskripsi Informasi</div>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="col-md-6 col-lg-4 col-xl-3 ">
-                  <div class="card">
-                     <div class="CardImage"><img src="<?php echo base_url(); ?>assets/img/karyawan.svg"></div>
-                     <div class="body">
-                        <div class="title mb-2">
-                           <font size="4"><b><i>Informasi B</font></b></i>
-                        </div>
-                        <div class="flip" id="flip3">
-                           <font color="white">Baca Selengkapnya</font>
-                        </div>
-                        <div class="panel" id="panel3">Deskripsi Informasi</div>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="col-md-6 col-lg-4 col-xl-3 ">
-                  <div class="card">
-                     <div class="CardImage"><img src="<?php echo base_url(); ?>assets/img/others-fitur.svg"></div>
-                     <div class="body">
-                        <div class="title mb-2">
-                           <font size="4"><b><i>Informasi Lainnya</font></b></i>
-                        </div>
-                        <div class="flip" id="flip4">
-                           <font color="white">Baca Selengkapnya</font>
-                        </div>
-                        <div class="panel" id="panel4">Deskripsi Informasi</div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div> -->
-         <div class="text-center mb-3">
-            <h3><b>Statistik SISKAPEDES</b></h3>
+         <div class="text-center mb-4">
+            <h3><b>Statistik</b></h3>
             <br>
          </div>
          <div class="row">
-            <div class="col-xl-6 col-md-6 col-12">
-               <div class="text-center mb-3">
-                  <h3><b>Chart Jenis Kelamin</b></h3>
-                  <br>
-               </div>
-               <canvas id="chart-jenis_kelamin"></canvas>
-            </div>
-            <div class="col-xl-6 col-md-6 col-12">
-               <div class="text-center mb-3">
-                  <h3><b>Chart Jabatan</b></h3>
-                  <br>
-               </div>
-               <canvas id="chart-jabatan"></canvas>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- Team Section -->
-   <div class="Team" id="AboutMe">
-      <div class="Section">
-         <div class="text-center">
-            <h2><b>Tentang Kami</b></h2>
-            <br>
-         </div>
-         <div class="content">
-            <div class="team row">
-               <div class="team-memeber col-md-6 col-lg-4 col-xl-3">
-                  <div class="card">
-                     <div class="TopImg">
-                        <img src="<?php echo base_url(); ?>assets/img/kominfo.png" class="rounded-circle w-100 d-block">
+            <div class="col-xl-3 col-lg-3">
+               <div class="col-xl-12 col-md-12 mb-4">
+                  <div class="card border-left-info shadow">
+                     <div class="card-header">
+                        Jumlah Perangkat
                      </div>
-                     <div class="TeamInfo text-center">
-                        <div class="Name">SISKAPEDES</div>
-                        <div class="Job">Dinas Komunikasi dan Informatika Kabupaten Purbalingga</div>
-                        <div class="social_links">
-                           <div class="social">
-                              <a class="" href="https://www.github.com"><i class="fab fa-github" aria-hidden="true"></i></a>
-                           </div>
-                           <div class="social">
-                              <a class="" href="https://www.instagram.com"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                           </div>
-                           <div class="social">
-                              <a class="" href="https://www.youtube.com"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                     <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                           <div class="col mr-2">
+
+                              <div class="text-xs mb-0 text-gray-300 text-center"><?php echo $perangkat ?> Orang</div>
                            </div>
                         </div>
                      </div>
+                  </div>
+               </div>
+
+               <!-- Earnings (Monthly) Card Example -->
+               <div class="col-xl-12 col-md-12">
+                  <div class="card border-left-success shadow h-100">
+                     <div class="card-header">
+                        Status Kepegawaian
+                     </div>
+                     <div class="card-body">
+                        <div class="row d-flex justify-content-between m-0 align-items-center">
+                           <p class="m-0"><span class="badge badge-success text-gray-300">Aktif</span> : <?php echo $perangkat_aktif ?></p class="m-0">
+                           <p class="m-0"><span class="badge badge-danger">Non-Aktif</span> : <?php echo $perangkat_non_aktif ?></p class="m-0">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Area Chart -->
+            <div class="col-xl-6 col-lg-6">
+               <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header">
+                     <p class="m-0">Grafik Perangkat Desa Per Jabatan</p>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                     <canvas id="chart-jabatan" height="150px"></canvas>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-3 col-lg-3">
+               <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header">
+                     <p class="m-0">Grafik Berdasarkan Jenis Kelamin</p>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                     <canvas id="chart-jenis_kelamin" height="315px"></canvas>
                   </div>
                </div>
             </div>
