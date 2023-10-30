@@ -14,7 +14,7 @@ class Data_Desa extends CI_Controller
 				<span aria-hidden="true">&times;</span>
 				</button>
 				</div>');
-            redirect('login');
+            redirect('login/logout');
         }
     }
 

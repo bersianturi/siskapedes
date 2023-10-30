@@ -14,7 +14,7 @@ class Dashboard extends CI_Controller
 				<span aria-hidden="true">&times;</span>
 				</button>
 				</div>');
-			redirect('login');
+			redirect('login/logout');
 		}
 	}
 	public function index()
