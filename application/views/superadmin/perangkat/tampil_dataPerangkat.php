@@ -32,7 +32,6 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-sm btn-primary mt-2"><i class="fa fa-search"></i> Filter Data</button>
-                            <a class="btn btn-sm btn-info mt-2" target="_blank" href="<?php echo base_url() . 'superadmin/data_perangkat/export/?kecamatan=' . set_value('kecamatan') . '&desa=' . set_value('desa') ?>"><i class="fa fa-file-excel-o"></i> Eksport Data Perangkat</a>
                         </form>
                         <div class="border-top my-4"></div>
                         <h4 class="card-title text-purple">Hasil Pencarian Data Perangkat</h4>
@@ -60,8 +59,6 @@
                                     <th class="text-center">Password</th>
                                     <!--<th class="text-center">Hak Akses</th>-->
                                     <th class="text-center">Hak Akses</th>
-                                    <!--<th class="text-center">Desa</th>-->
-                                    <th class="text-center"></th>
                                 </tr>
 
                                 <?php $no = 1;
@@ -86,15 +83,11 @@
                                         <td class="text-center"><?php echo $p->masa_jabatan ?></td>
                                         <td class="text-center"><?php echo $p->status ?></td>
                                         <td class="text-center"><?php echo $p->password ?></td>
-                                        <!--<td class="text-center"><?php echo $p->hak_akses ?></td>-->
-                                        <?php if ($p->hak_akses == '1') { ?>
-                                            <td>Admin</td>
-                                        <?php } else { ?>
-                                            <td>Perangkat</td>
-                                        <?php } ?>
-                                        <!-- <td><img src="<?php echo base_url() . 'photo/' . $p->photo ?>" width="50px"></td> -->
-
-                                        <td>
+                                        <td class="text-center"><?php foreach ($hak_akses as $hk) {
+                                                                    if ($hk->hak_akses == $p->hak_akses) {
+                                                                        echo $hk->keterangan;
+                                                                    }
+                                                                } ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </table>

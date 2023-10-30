@@ -30,7 +30,6 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-sm btn-primary mt-2"><i class="fa fa-search"></i> Filter Data</button>
-                            <a class="btn btn-sm btn-info mt-2" target="_blank" href="<?php echo base_url() . 'superadmin/data_perangkat/export/?kecamatan=' . set_value('kecamatan') . '&desa=' . set_value('desa') ?>"><i class="fa fa-file-excel-o"></i> Eksport Data Perangkat</a>
                         </form>
                         <div class="border-top my-4"></div>
                         <h4 class="card-title text-purple">Hasil Pencarian Data Perangkat</h4>
@@ -58,15 +57,12 @@
                                     <th class="text-center">Password</th>
                                     <!--<th class="text-center">Hak Akses</th>-->
                                     <th class="text-center">Hak Akses</th>
-                                    <!--<th class="text-center">Desa</th>-->
-                                    <th class="text-center" width="15%"></th>
-                                    <th class="text-center" width="15%"></th>
                                 </tr>
 
                                 <?php $no = 1;
                                 foreach ($perangkat as $p) : ?>
                                     <tr>
-                                        <td class="text-center"><?php echo $no ?></td>
+                                        <td class="text-center"><?php echo $no++ ?></td>
                                         <td class="text-center"><?php echo $p->nama_perangkat ?></td>
                                         <td class="text-center"><?php echo $p->gelar_depan ?></td>
                                         <td class="text-center"><?php echo $p->gelar_belakang ?></td>
@@ -86,23 +82,11 @@
                                         <td class="text-center"><?php echo $p->status ?></td>
                                         <td class="text-center"><?php echo $p->password ?></td>
                                         <!--<td class="text-center"><?php echo $p->hak_akses ?></td>-->
-                                        <td class="text-center"><?php if ($p->hak_akses == '1') {
-                                                                    echo "Admin";
-                                                                } else if ($p->hak_akses == '2') {
-                                                                    echo "Dinpermasdes";
-                                                                } else if ($p->hak_akses == '3') {
-                                                                    echo "Perangkat Desa";
-                                                                } else {
-                                                                    "Super Admin";
-                                                                }
-                                                                ?></td>
-                                        <td><img src="<?php echo base_url() . 'photo/' . $p->photo ?>" width="50px"></td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="#" class="btn btn-info btn-icon btn-sm"><i class="fa fa-pen fa-sm"></i></a>
-                                                <a href="#" class="btn btn-danger btn-icon btn-sm"><i class="fa fa-trash fa-sm"></i></a>
-                                            </div>
-                                        </td>
+                                        <td class="text-center"><?php foreach ($hak_akses as $hk) {
+                                                                    if ($hk->hak_akses == $p->hak_akses) {
+                                                                        echo $hk->keterangan;
+                                                                    }
+                                                                } ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </table>
