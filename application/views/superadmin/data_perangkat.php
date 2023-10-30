@@ -42,7 +42,7 @@
         var id_kecamatan = $('#kecamatan').val();
 
         $.ajax({
-            url: "<?= base_url('dinpermasdes/data_perangkat/get_desa') ?>",
+            url: "<?= base_url('superadmin/data_perangkat/get_desa') ?>",
             method: "POST",
             data: {
                 id_kecamatan: id_kecamatan
